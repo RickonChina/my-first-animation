@@ -1,0 +1,308 @@
+@background:#FF6565;
+@baymax:#fff;
+@shadow:#E3E3E3;
+#animated_div{
+  width: 60px;
+  height: 40px;
+  background: #92B901;
+  color: #ffffff;
+  position: relative;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size:14px;
+  padding: 20px 10px 0 10px;
+  animation-name:animated_div;
+  animation-duration: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes animated_div{
+  0%{
+    top:0;
+    left:0;
+  }
+  33% {
+    transform: rotate(26deg);
+    background-color: #92B901;
+    left:0;
+    top:0;
+  }
+  40% {
+    top:0;
+    left:300px;
+    background-color: #2CC5CA;
+  }
+  50% {
+    transform: rotate(0deg);
+    left:800px;
+    top:0;
+    background-color: #2CC5CA;
+    transition-delay:3s;
+  }
+  80% {
+    transform: rotate(0deg);
+    left:800px;
+    top:0;
+    background-color: #2CC5CA;
+    transition-delay:3s;
+  }
+
+  100% {
+    top:0;
+    left:0;
+    transform: rotate(-360deg);
+    background-color: #92B901;
+  }
+}
+.container{
+  width:1024px;
+  height:650px;
+  background-color: @background;
+  margin:0 auto;
+  padding:20px 0 0 200px;
+  .whole-baymax{
+    width:200px;
+    height:600px;
+    animation-name:walking-baymax;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count:infinite;
+    position:relative;
+    @keyframes walking-baymax {
+      0%{
+        top:0;
+        left:0;
+      }
+      100%{
+        top:0;
+        left:800px;
+      }
+    }
+    .head{
+      background-color: #ffffff;
+      width: 110px;
+      height: 84px;
+      border-radius: 50%;
+      position:relative;
+      animation-name:baymax-head;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count:infinite;
+      animation-direction: alternate;
+      @keyframes baymax-head {
+        0%{
+          transform: rotate(10deg);
+        }
+        100%{
+          transform:rotate(-10deg);
+        }
+      }
+      .eye{
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: black;
+        position: absolute;
+        top: 25px;
+        right: 29px;
+      }
+      .eyeLine{
+        width: 34px;
+        height: 26px;
+        border-bottom-left-radius: 40%;
+        border-bottom: 2px solid black;
+        position: absolute;
+        top: 7px;
+        right: 0;
+      }
+    }
+    .baymax-body{
+      width:230px;
+      height:230px;
+      border-radius: 50%;
+      background-color: @baymax;
+      position:relative;
+      left: -56px;
+      top: -12px;
+      .right-hand{
+        width: 186px;
+        height: 78px;
+        border-top-right-radius: 36%;
+        border-bottom-right-radius: 45%;
+        border-bottom-left-radius: 64%;
+        background-color: @baymax;
+        position: absolute;
+        top: 57px;
+        right: -30px;
+        display:block;
+        animation-name:right-hand-div;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-iteration-count:infinite;
+        animation-direction: alternate;
+        z-index: 5;
+        @keyframes right-hand-div {
+          100%{
+            top: 52px;
+            left: 29px;
+            transform:rotate(120deg);
+            transform-origin:20% 20%;
+          }
+        }
+        .right-hand-shadow{
+          width: 128px;
+          height: 128px;
+          border-bottom: 16px solid #e3e3e3;
+          border-bottom-right-radius: 9px;
+          border-bottom-left-radius: 47%;
+          position: absolute;
+          opacity: 1;
+          right: 31px;
+          top: -58px;
+          animation-name:right-hand-shadow-div;
+          animation-duration: 1s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+        }
+        @keyframes right-hand-shadow-div {
+          60%{
+            opacity: 0;
+          }
+          100%{
+            opacity: 0;
+          }
+        }
+        .right-hand-top-shadow{
+          width: 114px;
+          height: 128px;
+          border-top: 12px solid #e3e3e3;
+          border-top-right-radius: 9px;
+          border-top-left-radius: 9px;
+          position: absolute;
+          right: 23px;
+          top: -10px;
+          opacity: 0;
+          animation-name:right-hand-top-shadow-div;
+          animation-duration: 1s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+        }
+        @keyframes right-hand-top-shadow-div {
+          50%{
+            opacity:0
+          }
+          100%{
+            opacity:1;
+          }
+        }
+      }
+      .left-hand{
+        width: 78px;
+        height: 186px;
+        border-top-left-radius: 64%;
+        border-bottom-left-radius: 36%;
+        border-bottom-right-radius: 38%;
+        background-color: @baymax;
+        position: absolute;
+        top: 10px;
+        left: -19px;
+        display: block;
+        z-index:1;
+        transform:rotate(20deg);
+        animation-name:left-hand-div;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-iteration-count:infinite;
+        animation-direction: alternate;
+      }
+      @keyframes left-hand-div {
+        100%{
+          top: 42px;
+          left: 109px;
+          transform:rotate(-40deg);
+          transform-origin:20% 20%;
+        }
+      }
+    }
+    footer{
+      .right-leg{
+        height: 139px;
+        width: 67px;
+        background-color: #ffffff;
+        border-bottom-left-radius: 36%;
+        border-bottom-right-radius: 38%;
+        margin-top: -30px;
+        position: relative;
+        top: -19px;
+        left: -20px;
+        transform:rotate(31deg);
+        z-index: 5;
+        animation-name:right-leg-div;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-iteration-count:infinite;
+        animation-direction: alternate;
+      }
+      @keyframes right-leg-div {
+        100%{
+          top:-2px;
+          left:80px;
+          transform: rotate(-45deg);
+          transform-origin: 10% 10%;
+        }
+      }
+      .left-leg{
+        height: 169px;
+        width: 67px;
+        background-color: @baymax;
+        border-bottom-left-radius: 36%;
+        border-bottom-right-radius: 38%;
+        border-top-right-radius: 30%;
+        transform:rotate(-24deg);
+        margin-top: -30px;
+        position: relative;
+        top: -156px;
+        left: 72px;
+        z-index: 5;
+        animation-name:left-leg-div;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-iteration-count:infinite;
+        animation-direction: alternate;
+      }
+      @keyframes left-leg-div {
+        100%{
+          left:65px;
+          transform: rotate(50deg);
+          transform-origin: 10% 10%;
+        }
+      }
+      .base{
+        width: 214px;
+        height: 47px;
+        border-radius: 50%;
+        background-color: #DB4141;
+        position: relative;
+        top: -167px;
+        right: 37px;
+        z-index: 1;
+        animation-name:baymax-shadow;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count:infinite;
+        animation-direction:alternate;
+      }
+      @keyframes baymax-shadow {
+        100%{
+          transform:scale(0.5,0.5);
+        }
+      }
+    }
+  }
+}
